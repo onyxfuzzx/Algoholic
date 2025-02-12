@@ -816,23 +816,22 @@ body {
     }
 }
 
-/* Study Material Section */
-#study-material {
+/* Resources Section */
+#resources {
     display: block !important;
     opacity: 1 !important;
     padding: 4rem 2rem;
     text-align: center;
 }
 
-
-.study-grid {
+.resources-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.study-card {
+.resources-card {
     background: var(--glass);
     padding: 2rem;
     border-radius: 15px;
@@ -841,23 +840,23 @@ body {
     transition: transform 0.3s ease;
 }
 
-.study-card:hover {
+.resources-card:hover {
     transform: translateY(-10px);
     background: rgba(99, 102, 241, 0.2);
 }
 
-.study-card i {
+.resources-card i {
     font-size: 2.5rem;
     color: var(--primary);
     margin-bottom: 1rem;
 }
 
-.study-card h3 {
+.resources-card h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.study-card p {
+.resources-card p {
     color: #e2e8f0;
     margin-bottom: 1.5rem;
 }
@@ -869,21 +868,22 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .study-grid {
+    .resources-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .study-grid {
+    .resources-grid {
         grid-template-columns: 1fr;
     }
     
-    .study-card {
+    .resources-card {
         padding: 1.5rem;
     }
     
-    .study-card i {
+    .resources-card i {
         font-size: 2rem;
     }
 }
+
