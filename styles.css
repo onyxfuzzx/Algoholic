@@ -112,9 +112,9 @@ body {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 70px;
+        top: 94px;
         right: 20px;
-        background: #303a4a;
+        background: var(--glass);
         padding: 4rem;
         border-radius: 10px;
         z-index: 1000;
@@ -163,6 +163,10 @@ body {
     color: var(--light);
     margin: 0.5rem;
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    margin-top: auto; /* Pushes button to bottom */
+    width: fit-content; /* Makes button only take needed width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-button.secondary {
@@ -747,7 +751,7 @@ body {
 #semester-notes {
     display: block !important;
     opacity: 1 !important;
-    padding: 4rem 2rem;
+    padding: 8rem 2rem;
     text-align: center;
 }
 
@@ -819,7 +823,7 @@ body {
 #resources {
     display: block !important;
     opacity: 1 !important;
-    padding: 4rem 2rem;
+    padding: 7rem 2rem;
     text-align: center;
 }
 
@@ -858,11 +862,62 @@ body {
 .resources-card p {
     color: #e2e8f0;
     margin-bottom: 1.5rem;
+    flex-grow: column;
 }
 
 .cta-button.small {
     padding: 0.6rem 1.5rem;
     font-size: 0.9rem;
+}
+
+/* Fix duplicate ID issue - change to class */
+.resource-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* First section after header */
+.header + .resource-section {
+    padding-top: 8rem; /* Space under fixed header */
+}
+
+/* Subsequent sections */
+.resource-section + .resource-section {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.resources-grid {
+    gap: 1.5rem; /* Reduced grid gap */
+    margin-top: 1.5rem;
+}
+
+/* Keep card styles but adjust padding */
+.resources-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .header + .resource-section {
+        padding-top: 6rem;
+    }
+    
+    .resource-section {
+        padding: 3rem 1rem;
+    }
+    
+    .resource-section + .resource-section {
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+    }
+    
+    .resources-card {
+        padding: 1rem;
+    }
 }
 
 /* Responsive Design */
@@ -885,6 +940,9 @@ body {
         font-size: 2rem;
     }
 }
+
+
+
 
 /* Update mobile menu styles */
 @media (max-width: 768px) {
