@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const data = await response.json();
                 if (data.success) {
-                    result.textContent = "Thank you for your feedback!";
+                    result.textContent = "";
                     result.classList.add("success");
                     result.classList.remove("error");
                     form.reset();
