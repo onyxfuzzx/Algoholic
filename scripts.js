@@ -52,3 +52,10 @@ const form = document.getElementById("feedback-form");
             result.classList.remove("success");
         });
     });
+
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
