@@ -60,20 +60,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Mobile Navigation Toggle
+// Update the mobile menu toggle script
 document.addEventListener("DOMContentLoaded", () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
 
     if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', () => {
+        mobileMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
-            mobileMenu.classList.toggle('active'); // Animate hamburger icon
+            mobileMenu.classList.toggle('active');
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('#mobile-menu') && !e.target.closest('.nav-links')) {
+            if (!e.target.closest('.nav-links') && !e.target.closest('#mobile-menu')) {
                 navLinks.classList.remove('active');
                 mobileMenu.classList.remove('active');
             }

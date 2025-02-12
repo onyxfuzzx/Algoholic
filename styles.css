@@ -115,7 +115,7 @@ body {
         top: 70px;
         right: 20px;
         background: var(--glass);
-        padding: 1.5rem;
+        padding: 4rem;
         border-radius: 10px;
         backdrop-filter: blur(10px);
         z-index: 1000;
@@ -887,3 +887,45 @@ body {
     }
 }
 
+/* Update mobile menu styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: var(--glass);
+        padding: 4rem;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .nav-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-nav {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Remove desktop-auth specific styles */
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
