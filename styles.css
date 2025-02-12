@@ -744,3 +744,146 @@ body {
     }
 }
 
+/* Semester Notes Section */
+#semester-notes {
+    display: block !important;
+    opacity: 1 !important;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+
+.semester-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.semester-card {
+    background: var(--glass);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.semester-card:hover {
+    transform: translateY(-10px);
+    background: rgba(99, 102, 241, 0.2);
+}
+
+.semester-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.semester-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.semester-card p {
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button.small {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .semester-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .semester-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .semester-card {
+        padding: 1.5rem;
+    }
+    
+    .semester-card i {
+        font-size: 2rem;
+    }
+}
+
+/* Study Material Section */
+#study-material {
+    display: block !important;
+    opacity: 1 !important;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+
+.study-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.study-card {
+    background: var(--glass);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.study-card:hover {
+    transform: translateY(-10px);
+    background: rgba(99, 102, 241, 0.2);
+}
+
+.study-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.study-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.study-card p {
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.cta-button.small {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .study-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .study-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .study-card {
+        padding: 1.5rem;
+    }
+    
+    .study-card i {
+        font-size: 2rem;
+    }
+}
