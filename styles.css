@@ -114,10 +114,9 @@ body {
         position: absolute;
         top: 70px;
         right: 20px;
-        background: var(--glass);
+        background: #303a4a;
         padding: 4rem;
         border-radius: 10px;
-        backdrop-filter: blur(10px);
         z-index: 1000;
     }
 
@@ -895,10 +894,9 @@ body {
         position: absolute;
         top: 70px;
         right: 20px;
-        background: var(--glass);
+        background: #303a4a;
         padding: 4rem;
         border-radius: 10px;
-        backdrop-filter: blur(10px);
         z-index: 1000;
         width: 100%;
     }
