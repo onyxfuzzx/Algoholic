@@ -41,10 +41,6 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
 
 .nav-links a {
     color: var(--light);
@@ -67,6 +63,69 @@ body {
 .nav-links a:hover::after {
     width: 100%;
 }
+
+/* Add these styles to your styles.css */
+/* Desktop Navigation */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 3px 0;
+        transition: 0.4s;
+    }
+
+    /* Mobile Menu Active State */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: var(--glass);
+        padding: 1.5rem;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .auth-buttons.desktop-auth {
+        display: none;
+    }
+}
+
 
 .hero {
     min-height: 100vh;
@@ -684,3 +743,4 @@ body {
         height: 400px; /* Adjust height for mobile */
     }
 }
+
