@@ -614,6 +614,14 @@ body {
     margin-bottom: 2rem;
 }
 
+.internship-explore {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 .coming-soon-content .cta-button {
     padding: 0.8rem 2rem;
     border: none;
