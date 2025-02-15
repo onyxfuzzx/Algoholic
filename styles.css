@@ -759,6 +759,9 @@ body {
     .jupyter-notebook {
         height: 400px; /* Adjust height for mobile */
     }
+    .internship-explore{
+        left: 50%;
+    }
 }
 
 /* Semester Notes Section */
