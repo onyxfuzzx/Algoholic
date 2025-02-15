@@ -602,7 +602,13 @@ body {
     animation: float 3s ease-in-out infinite;
 }
 
-.coming-soon-content .subtitle {
+.coming-soon-content {
+    font-size: 1.25rem;
+    color: var(--light);
+    margin-bottom: 2rem;
+}
+
+.subtitle {
     font-size: 1.25rem;
     color: var(--light);
     margin-bottom: 2rem;
