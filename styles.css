@@ -493,6 +493,14 @@ body {
     box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
+.resources-h2 {
+    text-align: center;
+    color: var(--light);
+    padding: 1cm 0 0.5cm 0; /* 1cm top, 0 left/right, 2cm bottom */
+    left: 50%;
+    top: 50%;
+}
+
 /* Coming Soon Page */
 .coming-soon-container {
     display: flex;
@@ -761,6 +769,13 @@ body {
     opacity: 1;
 }
 
+#internships-main {
+    display: block;
+    padding: 7rem 2rem;
+    visibility: visible;
+    opacity: 1;
+}
+
 .internship-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -853,7 +868,7 @@ body {
 #resources {
     display: block !important;
     opacity: 1 !important;
-    padding: 7rem 2rem;
+    padding: 2.96cm 0.85cm;
     text-align: center;
 }
 
