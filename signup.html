@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Algoholic</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">Algoholics</a>
+        </div>
+    
+        <!-- Desktop Navigation -->
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="comingsoon.html">Academic</a>
+            <a href="resources.html">Resources</a>
+            <a href="comingsoon.html">Projects</a>
+            <div class="auth-buttons">
+                <a href="signup.html" class="nav-button signup-button">Sign Up</a>
+                <a href="login.html" class="nav-button login-button">Log In</a>
+            </div>
+        </nav>
+    
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Signup Form -->
+    <section class="hero">
+        <div class="hero-content" style="width: 100%; max-width: 400px;">
+            <h1 class="form-h1-signup" style="text-align: center; margin-bottom: 2rem;">Sign Up</h1>
+            <form id="signup-form" class="form" style="width: 100%;">
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="name" style="display: block; text-align: left; margin-bottom: 0.5rem;">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required 
+                           style="width: 100%; padding: 0.8rem; border-radius: 5px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="rollno" style="display: block; text-align: left; margin-bottom: 0.5rem;">Roll No</label>
+                    <input type="text" id="rollno" name="rollno" placeholder="Enter your roll number" required 
+                           style="width: 100%; padding: 0.8rem; border-radius: 5px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="email" style="display: block; text-align: left; margin-bottom: 0.5rem;">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required 
+                           style="width: 100%; padding: 0.8rem; border-radius: 5px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="password" style="display: block; text-align: left; margin-bottom: 0.5rem;">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required 
+                           style="width: 100%; padding: 0.8rem; border-radius: 5px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label for="confirm-password" style="display: block; text-align: left; margin-bottom: 0.5rem;">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" 
+                           placeholder="Confirm your password" required 
+                           style="width: 100%; padding: 0.8rem; border-radius: 5px;">
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Sign Up</button>
+            </form>
+            <p style="text-align: center; margin-top: 1.5rem;">Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
