@@ -6,7 +6,6 @@
     --glass: rgba(255, 255, 255, 0.1);
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -25,56 +24,76 @@ body {
     overflow-x: hidden;
 }
 
-.header {
+.nav-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.login-button {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.login-button:hover {
+    background-color: var(--primary);
+    color: var(--light);
+    transform: translateY(-2px);
+}
+
+.signup-button {
+    background-color: var(--primary);
+    color: var(--light);
+    border: 2px solid var(--primary);
+}
+
+.signup-button:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 1.5rem;
-    background: var(--glass);
+    padding: 1rem 2rem;
+    background-color: var(--glass);
     backdrop-filter: blur(10px);
-    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
 }
 
-.logo {
-    font-size: 1.8rem;
+.navbar-brand {
+    color: var(--primary);
+    font-size: 1.75rem;
     font-weight: 700;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
 
-.nav-links a {
+.navbar-links a {
     color: var(--light);
     text-decoration: none;
-    position: relative;
-    transition: 0.3s;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: 0.3s;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* Add these styles to your styles.css */
-/* Desktop Navigation */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+.navbar-links a:hover {
+    background-color: var(--glass);
+    color: var(--primary);
+    transform: translateY(-2px);
 }
 
 .auth-buttons {
@@ -82,54 +101,70 @@ body {
     gap: 1rem;
 }
 
-.mobile-nav {
+.navbar-toggle {
     display: none;
+    flex-direction: column;
+    cursor: pointer;
+    order: 2;
 }
 
-/* Mobile Navigation */
+.navbar-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--primary);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
 @media (max-width: 768px) {
-    .nav-links {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    .navbar-links {
         display: none;
-    }
-    
-    .mobile-nav {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .menu-toggle {
-        display: flex;
+        width: 100%;
         flex-direction: column;
-        cursor: pointer;
+        order: 3;
+        margin-top: 1rem;
+        gap: 0.5rem;
     }
 
-    .menu-toggle .bar {
-        width: 25px;
-        height: 3px;
-        background-color: white;
-        margin: 3px 0;
-        transition: 0.4s;
-    }
-
-    /* Mobile Menu Active State */
-    .nav-links.active {
+    .navbar-links.active {
         display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 94px;
-        right: 20px;
-        background: var(--glass);
-        padding: 4rem;
-        border-radius: 10px;
-        z-index: 1000;
     }
 
-    .auth-buttons.desktop-auth {
-        display: none;
+    .navbar-links a {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        border-top: 1px solid var(--glass);
+    }
+
+    .auth-buttons {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .navbar-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .navbar-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
-
 
 .hero {
     min-height: 100vh;
@@ -230,7 +265,7 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-top: 20px;
-}   
+}
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -238,10 +273,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -266,7 +297,6 @@ body {
     cursor: pointer;
 }
 
-
 .open-sans-custom {
     font-family: "Open Sans", serif;
     font-optical-sizing: auto;
@@ -274,10 +304,9 @@ body {
     font-style: normal;
     font-variation-settings:
       "wdth" 100;
-  }
+}
 
-
-  .footer {
+.footer {
     background-color: #2d3142;
     color: #ffffff;
     padding: 4rem 2rem 1rem;
@@ -368,50 +397,10 @@ body {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
+
     .social-icons {
         justify-content: center;
     }
-}
-
-
-
-/* Navigation Buttons */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.nav-button {
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.login-button {
-    background-color: transparent;
-    color: #6366f1;
-    border: 2px solid #6366f1;
-}
-
-.login-button:hover {
-    background-color: #3b82f6;
-    color: #ffffff;
-}
-
-.signup-button {
-    background-color: #3b82f6;
-    color: #ffffff;
-    border: 2px solid #3b82f6;
-}
-
-.signup-button:hover {
-    background-color: #6366f1;
-    border-color: #6366f1;
 }
 
 /* Feedback Section */
@@ -577,123 +566,6 @@ body {
     50% { transform: translateY(-20px); }
 }
 
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.menu-toggle .bar {
-    height: 3px;
-    width: 25px;
-    background-color: var(--light);
-    margin: 4px 0;
-    transition: 0.4s;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: var(--glass);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 1rem;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero .subtitle {
-        font-size: 1rem;
-    }
-
-    .feature-card h3 {
-        font-size: 1.2rem;
-    }
-
-    .feature-card p {
-        font-size: 0.9rem;
-    }
-
-    .section h2 {
-        font-size: 1.8rem;
-    }
-
-    .footer-section h4 {
-        font-size: 1rem;
-    }
-
-    .footer-section p, .footer-section ul li {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .features-grid, .internship-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-card, .internship-card {
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .cta-button {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
-    }
-
-    .nav-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding: 1rem;
-    }
-
-    .hero-blob {
-        display: none; /* Hide the blob effect on mobile */
-    }
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .jupyter-notebook {
-        height: 400px; /* Adjust height for mobile */
-    }
-    .internship-explore{
-        left: 50%;
-    }
-}
-
 /* Semester Notes Section */
 #semester-notes {
     display: block !important;
@@ -701,7 +573,6 @@ body {
     padding: 8rem 2rem;
     text-align: center;
 }
-
 
 .semester-grid {
     display: grid;
@@ -756,11 +627,11 @@ body {
     .semester-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .semester-card {
         padding: 1.5rem;
     }
-    
+
     .semester-card i {
         font-size: 2rem;
     }
@@ -927,7 +798,7 @@ body {
 }
 
 /* First section after header */
-.header + .resource-section {
+.resource-section {
     padding-top: 8rem; /* Space under fixed header */
 }
 
@@ -952,19 +823,15 @@ body {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-    .header + .resource-section {
-        padding-top: 6rem;
-    }
-    
     .resource-section {
         padding: 3rem 1rem;
     }
-    
+
     .resource-section + .resource-section {
         padding-top: 1rem;
         padding-bottom: 3rem;
     }
-    
+
     .resources-card {
         padding: 1rem;
     }
@@ -981,59 +848,14 @@ body {
     .resources-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .resources-card {
         padding: 1.5rem;
     }
-    
+
     .resources-card i {
         font-size: 2rem;
     }
-}
-
-
-
-
-/* Update mobile menu styles */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: #303a4a;
-        padding: 4rem;
-        border-radius: 10px;
-        z-index: 1000;
-        width: 100%;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .auth-buttons {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .nav-button {
-        width: 100%;
-        text-align: center;
-    }
-
-    .mobile-nav {
-        display: flex;
-        align-items: center;
-    }
-}
-
-/* Remove desktop-auth specific styles */
-.auth-buttons {
-    display: flex;
-    gap: 1rem;
 }
 
 /* Popup Background */
@@ -1047,7 +869,6 @@ body {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
-
 
 /* Popup Box */
 .popup-content {
@@ -1121,3 +942,5 @@ body {
     padding: 2cm 0 0.5cm 0; /* 1cm top, 0 left/right, 2cm bottom */
     margin: 0px 0px 0px 0px;
 }
+
+
