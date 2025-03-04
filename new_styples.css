@@ -373,9 +373,10 @@ code {
 /* Internship Section */
 #internships {
     display: block;
-    padding: 4rem 2rem;
+    padding: 0rem 2rem;
     visibility: visible;
     opacity: 1;
+    margin-top: -1.5cm;
 }
 
 #internships-main {
@@ -474,7 +475,7 @@ code {
 }
 
 .internship-explore {
-    margin: 0;
+    margin: 0.5cm ;
     position: absolute;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
@@ -499,7 +500,7 @@ code {
     backdrop-filter: blur(10px);
     margin: 4rem auto;
     max-width: 800px;
-}
+    margin-top: 2.9cm;}
 
 #feedback h2 {
     font-size: 2rem;
@@ -703,5 +704,107 @@ code {
 
     .social-icons {
         justify-content: center;
+    }
+}
+
+/* Resources */
+#resources {
+    display: block !important;
+    opacity: 1 !important;
+    padding: 2.96cm 0.85cm;
+    text-align: center;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.resources-card {
+    background: var(--glass);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.resources-card:hover {
+    transform: translateY(-10px);
+    background: rgba(99, 102, 241, 0.2);
+}
+
+.resources-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.resources-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.resources-card p {
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+    flex-grow: column;
+}
+
+.cta-button.small {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* Fix duplicate ID issue - change to class */
+.resource-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* First section after header */
+.resource-section {
+    padding-top: 8rem; /* Space under fixed header */
+}
+
+/* Subsequent sections */
+.resource-section + .resource-section {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.resources-grid {
+    gap: 1.5rem; /* Reduced grid gap */
+    margin-top: 1.5rem;
+}
+
+/* Keep card styles but adjust padding */
+.resources-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .resource-section {
+        padding: 3rem 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .resource-section + .resource-section {
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+    }
+
+    .resources-card {
+        padding: 1rem;
+    }
+
+    .resources-card i {
+        font-size: 2rem;
     }
 }
