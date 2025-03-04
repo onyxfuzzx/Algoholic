@@ -84,3 +84,26 @@ window.addEventListener("click", function(event) {
         popup.style.display = "none";
     }
 });
+
+// Jupiter notebook
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to adjust the iframe size
+    function adjustIframeSize() {
+        const iframe = document.querySelector('.jupyter-notebook');
+        if (iframe) {
+            iframe.style.width = '100%';
+            iframe.style.height = '800px'; // Set a default height
+
+            // Optionally, adjust height based on content
+            iframe.onload = function() {
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            };
+        }
+    }
+
+    // Adjust iframe size on window resize
+    window.addEventListener('resize', adjustIframeSize);
+
+    // Initial adjustment
+    adjustIframeSize();
+});
