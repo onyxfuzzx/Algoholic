@@ -490,7 +490,10 @@ code {
 /* Internship Card Responsive for Phone 768px Max */
 @media (max-width: 768px) {
     .internship-card {
-        margin-bottom: 2rem;
+        margin-bottom: 0;
+    }
+    #internships.section {
+        margin-top: -2.2cm;
     }
 }
 
