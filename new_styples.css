@@ -475,11 +475,16 @@ code {
 }
 
 .internship-explore {
-    margin: 0.5cm ;
+    margin-top: 0.5cm;
+    margin-right: 100[x];
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+
 }
 
 /* Internship Card Responsive for Phone 768px Max */
