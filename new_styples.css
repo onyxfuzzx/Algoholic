@@ -707,7 +707,7 @@ code {
     }
 }
 
-/* Resources */
+/* Resources Section */
 #resources {
     display: block !important;
     opacity: 1 !important;
@@ -718,17 +718,22 @@ code {
 .resources-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem; /* Consolidated gap value */
+    margin-top: 1.5rem; /* Consolidated margin-top value */
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .resources-card {
     background: var(--glass);
-    padding: 2rem;
+    padding: 1.5rem; /* Consolidated padding value */
     border-radius: 15px;
     backdrop-filter: blur(10px);
     text-align: center;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .resources-card:hover {
@@ -758,15 +763,16 @@ code {
     font-size: 0.9rem;
 }
 
-/* Fix duplicate ID issue - change to class */
+/* Resource Section Styles */
 .resource-section {
     padding: 4rem 2rem;
     text-align: center;
 }
 
 /* First section after header */
-.resource-section {
-    padding-top: 8rem; /* Space under fixed header */
+.resource-section:first-of-type {
+    padding-top: 2rem; /* Space under fixed header */
+    padding-bottom: 0rem;
 }
 
 /* Subsequent sections */
@@ -775,24 +781,10 @@ code {
     padding-bottom: 4rem;
 }
 
-.resources-grid {
-    gap: 1.5rem; /* Reduced grid gap */
-    margin-top: 1.5rem;
-}
-
-/* Keep card styles but adjust padding */
-.resources-card {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .resource-section {
         padding: 3rem 1rem;
-        grid-template-columns: 1fr;
     }
 
     .resource-section + .resource-section {
@@ -804,7 +796,18 @@ code {
         padding: 1rem;
     }
 
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+
     .resources-card i {
         font-size: 2rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
