@@ -18,9 +18,8 @@ body {
     line-height: 1.6;
     margin-top: 2cm;
     padding: 0;
-    background-color: var(--dark);
     color: var(--light);
-    line-height: 1.6;
+    background-color: var(--dark);
     overflow-x: hidden;
 }
 
