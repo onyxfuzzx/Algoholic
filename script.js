@@ -140,3 +140,4 @@ function showCopyNotification() {
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
+
