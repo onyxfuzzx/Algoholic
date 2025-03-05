@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INTRODUCTION TO AI PRACTICAL</title>
-    <link rel="stylesheet" href="new_styples.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -27,7 +31,6 @@
         </div>
     </nav>
 
-    
     <div class="container">
         <h1>INTRODUCTION TO AI PRACTICAL</h1>
         <div class="section">
@@ -49,7 +52,8 @@
                 <li>Repeat until all nodes are visited.</li>
             </ol>
             <h3>Python Code:</h3>
-            <pre><code class="language-python">def dfs(graph, node, visited=None):
+            <div class="code-container">
+                <pre><code class="language-python">def dfs(graph, node, visited=None):
     if visited is None:
         visited = set()
     if node not in visited:
@@ -70,6 +74,8 @@ graph = {
 
 print("DFS Traversal:")
 dfs(graph, 'A')</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
             <h3>Traversal Process:</h3>
             <ol>
                 <li>Start at ‘A’ → Print ‘A’, mark ‘A’ as visited.</li>
@@ -106,7 +112,8 @@ dfs(graph, 'A')</code></pre>
                 <li>Repeat until the queue is empty.</li>
             </ol>
             <h3>Python Code:</h3>
-            <pre><code class="language-python">from collections import deque
+            <div class="code-container">
+                <pre><code class="language-python">from collections import deque
 
 def bfs(graph, start):
     visited = set()
@@ -133,6 +140,8 @@ graph = {
 
 print("BFS Traversal:")
 bfs(graph, 'A')</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
             <h3>Traversal Process:</h3>
             <ol>
                 <li>Start at node <strong>A</strong>, enqueue it.
@@ -229,7 +238,8 @@ bfs(graph, 'A')</code></pre>
                 <li>The root node receives the best move.</li>
             </ol>
             <h3>Python Code:</h3>
-            <pre><code class="language-python">def minimax(depth, node_index, is_max, values, alpha, beta):
+            <div class="code-container">
+                <pre><code class="language-python">def minimax(depth, node_index, is_max, values, alpha, beta):
     if depth == 3:  # Assume depth 3 is the leaf level
         return values[node_index]
 
@@ -249,6 +259,8 @@ bfs(graph, 'A')</code></pre>
 # Example values at leaf nodes
 values = [3, 5, 2, 9, 12, 5, 23, 23]
 print("Minimax Optimal Value:", minimax(0, 0, True, values, float('-inf'), float('inf')))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
         </div>
         <div class="section">
             <h2>4. Alpha-Beta Pruning Algorithm</h2>
@@ -273,7 +285,8 @@ print("Minimax Optimal Value:", minimax(0, 0, True, values, float('-inf'), float
                 <li>Prune branches where alpha >= beta.</li>
             </ol>
             <h3>Python Code:</h3>
-            <pre><code class="language-python">def alphabeta(depth, node_index, is_max, values, alpha, beta):
+            <div class="code-container">
+                <pre><code class="language-python">def alphabeta(depth, node_index, is_max, values, alpha, beta):
     if depth == 3:
         return values[node_index]
 
@@ -299,6 +312,8 @@ print("Minimax Optimal Value:", minimax(0, 0, True, values, float('-inf'), float
 # Example values at leaf nodes
 values = [3, 5, 2, 9, 12, 5, 23, 23]
 print("Alpha-Beta Pruning Optimal Value:", alphabeta(0, 0, True, values, float('-inf'), float('inf')))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
         </div>
         <div class="section">
             <h2>5. Bayes' Theorem Algorithm</h2>
@@ -314,7 +329,8 @@ $$</p>
                 <li><strong>( P(H) )</strong> = Prior Probability: The initial probability of hypothesis ( H ) before observing evidence ( E ).</li>
             </ul>
             <h3>Python Code:</h3>
-            <pre><code class="language-python">def bayes_theorem(prior_A, likelihood_B_given_A, prior_B):
+            <div class="code-container">
+                <pre><code class="language-python">def bayes_theorem(prior_A, likelihood_B_given_A, prior_B):
     return (likelihood_B_given_A * prior_A) / prior_B
 
 # Example Probabilities
@@ -322,6 +338,8 @@ prior_A = 0.02  # Probability of having a disease
 likelihood_B_given_A = 0.95  # Test accuracy
 prior_B = 0.05  # Probability of a positive test
 print("Bayesian Probability:", bayes_theorem(prior_A, likelihood_B_given_A, prior_B))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
         </div>
         <div class="section">
             <h2>6. A* Search Algorithm</h2>
@@ -342,7 +360,8 @@ $$</p>
                 <li>Stop when the goal is reached.</li>
             </ol>
             <h3>Python Code:</h3>
-            <pre><code class="language-python">from queue import PriorityQueue
+            <div class="code-container">
+                <pre><code class="language-python">from queue import PriorityQueue
 
 def a_star(graph, start, goal, h):
     open_list = PriorityQueue()
@@ -382,6 +401,8 @@ h = {'A': 7, 'B': 6, 'C': 2, 'D': 0}
 
 # Finds the shortest path from A to D
 print("\nA* Path:", a_star(graph, 'A', 'D', h))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
         </div>
         <div class="section">
             <h2>7. Tower of Hanoi</h2>
@@ -392,7 +413,8 @@ print("\nA* Path:", a_star(graph, 'A', 'D', h))</code></pre>
                 <li>You can use an auxiliary (helper) rod to temporarily hold disks.</li>
             </ol>
             <h3>Python Code:</h3>
-            <pre><code class="language-python">def TowerOfHanoi(n, source, destination, auxiliary):
+            <div class="code-container">
+                <pre><code class="language-python">def TowerOfHanoi(n, source, destination, auxiliary):
     if n == 1:
         print(f"Move disk 1 from source {source} to destination {destination}")
         return
@@ -409,9 +431,11 @@ print("\nA* Path:", a_star(graph, 'A', 'D', h))</code></pre>
 # Driver code
 n = 4
 TowerOfHanoi(n, 'A', 'B', 'C')</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
         </div>
     </div>
 
 </body>
-    <script src="prac_script.js"></script>
+<script src="script.js"></script>
 </html>

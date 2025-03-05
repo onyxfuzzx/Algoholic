@@ -107,3 +107,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial adjustment
     adjustIframeSize();
 });
+
+// script.js
+function copyCode(button) {
+    const codeBlock = button.previousElementSibling;
+    const code = codeBlock.innerText;
+    navigator.clipboard.writeText(code).then(() => {
+        showCopyNotification();
+    }).catch(err => {
+        console.error('Failed to copy code: ', err);
+    });
+}
+
+function showCopyNotification() {
+    const notification = document.createElement('div');
+    notification.className = 'copy-notification';
+    notification.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5"/>
+        </svg>
+        Copied to clipboard!
+    `;
+
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => notification.classList.add('show'), 10);
+    
+    // Hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.add('hide');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
