@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoholics - Notes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="auth.js"></script>
+    <script>
+        // Check authentication status when page loads
+        checkAuth();
+    </script>
+    
+    <nav class="navbar">
+        <div class="navbar-brand" onclick="window.location.href='index.html'">Algoholic</div>
+        <div class="navbar-links">
+            <a href="comingsoon.html">Academic</a>
+            <a href="resources.html">Resources</a>
+            <a href="comingsoon.html">Projects</a>
+            <a href="comingsoon.html">Careers</a>
+            <a href="comingsoon.html">Network</a>
+            <div class="auth-buttons">
+                <!-- Only one of these groups will show at a time -->
+                <div class="guest-buttons">
+                    <a href="signup.html" class="nav-button signup-button">Sign Up</a>
+                    <a href="login.html" class="nav-button login-button">Log In</a>
+                </div>
+                <div class="user-buttons">
+                    <button onclick="logout()" class="nav-button logout-button">Log Out</button>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Semester Notes Section -->
+    <section id="semester-notes" class="section">
+        <h2 class="semester-h2">Semester Notes</h2>
+        <div class="semester-grid">
+            <!-- Semester 1 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 1</h3>
+                <p>Comprehensive notes for Semester 1 subjects.</p>
+                <a href="comingsoon.html" class="cta-button">View Notes</a>
+            </div>
+
+            <!-- Semester 2 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 2</h3>
+                <p>Comprehensive notes for Semester 2 subjects.</p>
+                <a href="comingsoon.html" class="cta-button">View Notes</a>
+            </div>
+
+            <!-- Semester 3 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 3</h3>
+                <p>Comprehensive notes for Semester 3 subjects.</p>
+                <a href="comingsoon.html" class="cta-button">View Notes</a>
+            </div>
+
+            <!-- Semester 4 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 4</h3>
+                <p>Comprehensive notes for Semester 4 subjects.</p>
+                <a href="practical_ai.html" class="cta-button">View Notes</a>
+            </div>
+
+            <!-- Semester 5 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 5</h3>
+                <p>Comprehensive notes for Semester 5 subjects.</p>
+                <a href="comingsoon.html" class="cta-button">View Notes</a>
+            </div>
+
+            <!-- Semester 6 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 6</h3>
+                <p>Comprehensive notes for Semester 6 subjects.</p>
+                <a href="comingsoon.html" class="cta-button">View Notes</a>
+            </div>
+
+            <!-- Semester 7 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 7</h3>
+                <p>Comprehensive notes for Semester 7 subjects.</p>
+                <a href="comingsoon.html" class="cta-button">View Notes</a>
+            </div>
+
+            <!-- Semester 8 -->
+            <div class="semester-card">
+                <i class="fas fa-book"></i>
+                <h3>Semester 8</h3>
+                <p>Comprehensive notes for Semester 8 subjects.</p>
+                <a href="comingsoon.html" class="cta-button">View Notes</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Algoholics</h4>
+                <p>Empowering the next generation of AI innovators through collaborative learning and practical implementation.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/onyxfuzzx"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/zaiddddd"><i class="fab fa-linkedin"></i></a>
+                    <a href="comingsoon.html"><i class="fab fa-twitter"></i></a>
+                    <a href="comingsoon.html"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="comingsoon.html">Academic Resources</a></li>
+                    <li><a href="comingsoon.html">Project Showcase</a></li>
+                    <li><a href="comingsoon.html">Career Opportunities</a></li>
+                    <li><a href="comingsoon.html">Professional Network</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> contact.algoholic@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> Coming Soon</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Data Science and Artificial Intelligence, RJ College</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Algoholics. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

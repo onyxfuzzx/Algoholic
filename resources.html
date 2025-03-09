@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoholics - AI & Data Science Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="auth.js"></script>
+    <script>
+        // Check authentication status when page loads
+        checkAuth();
+    </script>
+    
+    <nav class="navbar">
+        <div class="navbar-brand" onclick="window.location.href='index.html'">Algoholic</div>
+        <div class="navbar-links">
+            <a href="comingsoon.html">Academic</a>
+            <a href="resources.html">Resources</a>
+            <a href="comingsoon.html">Projects</a>
+            <a href="comingsoon.html">Careers</a>
+            <a href="comingsoon.html">Network</a>
+            <div class="auth-buttons">
+                <!-- Only one of these groups will show at a time -->
+                <div class="guest-buttons">
+                    <a href="signup.html" class="nav-button signup-button">Sign Up</a>
+                    <a href="login.html" class="nav-button login-button">Log In</a>
+                </div>
+                <div class="user-buttons">
+                    <button onclick="logout()" class="nav-button logout-button">Log Out</button>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    
+
+        
+        <!-- Resources Section -->
+        <section class="resource-section">
+            <h2>Resources Materials</h2>
+            <div class="resources-grid">
+                <!-- E-Book -->
+                <div class="resources-card">
+                    <i class="fas fa-book"></i>
+                    <h3>E-Books & Research Papers</h3>
+                    <p>Free AI & Data Science books and must-read research papers.</p>
+                    <a href="comingsoon.html" class="cta-button">View</a>
+                </div>
+                
+                <!-- Notes -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-book-open"></i>
+                    <h3>Lecture Notes</h3>
+                    <p>PDFs, slides, and hand-written notes for different semesters.</p>
+                    <a href="notes.html" class="cta-button">Download</a>
+                </div>
+                
+                <!-- Cheat Sheets -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-sheet-plastic"></i>
+                    <h3>Cheat Sheets & Quick Guides</h3>
+                    <p>One-page summaries for Python, SQL, ML algorithms, etc.</p>
+                    <a href="comingsoon.html" class="cta-button">Get</a>
+                </div>
+                
+                <!-- Video Tutorials -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-video"></i>
+                    <h3>Video Tutorials</h3>
+                    <p>YouTube and course recommendations on AI, ML, and DS</p>
+                    <a href="comingsoon.html" class="cta-button">Watch</a>
+                </div>
+            </div>
+            
+            
+            
+            
+            <h2 class="resources-h2">Coding Practice & Challenges</h2>
+            <div class="resources-grid">
+                <!-- Leetcode, CodeChef, HackerRank links -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Leetcode, CodeChef, HackerRank links</h3>
+                    <p>for coding practice.</p>
+                    <a href="comingsoon.html" class="cta-button">Solve</a>
+                </div>
+                
+                <!-- Machine Learning & AI Challenges -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-cash-register"></i>
+                    <h3>Machine Learning & AI Challenges</h3>
+                    <p>PDFs, slides, and hand-written notes for different semesters.</p>
+                    <a href="comingsoon.html" class="cta-button">Join</a>
+                </div>
+                
+                <!-- Mini Projects & Assignments -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <h3>Mini Projects & Assignments</h3>
+                    <p>Real-world problem statements with solutions.</p>
+                    <a href="comingsoon.html" class="cta-button">Explore</a>
+                </div>
+            </div>
+            
+            <h2 class="resources-h2">Tools & Software</h2>
+            
+            <div class="resources-grid">
+                <!-- IDE & Software Downloads -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-download"></i>
+                    <h3>IDE & Software Downloads</h3>
+                    <p>(Jupyter Notebook, VS Code, Anaconda, etc.).</p>
+                    <a href="comingsoon.html" class="cta-button">Download</a>
+                </div>
+                
+                <!-- Python & R Libraries -->
+                <div class="resources-card">
+                    <i class="fa-brands fa-python"></i>
+                    <h3>Python & R Libraries</h3>
+                    <p>List of essential libraries with installation commands.</p>
+                    <a href="comingsoon.html" class="cta-button">Explore</a>
+                </div>
+                
+                <!-- Pretrained AI Models -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-brain"></i>
+                    <h3>Pretrained AI Models</h3>
+                    <p>Open-source models for ML, NLP, and CV.</p>
+                    <a href="comingsoon.html" class="cta-button">Access</a>
+                </div>
+                
+            </div>
+            
+            <h2 class="resources-h2">Career & Interview Prep</h2>
+            
+            <div class="resources-grid">
+                <!-- Interview Questions -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-clipboard-question"></i>
+                    <h3>Interview Questions</h3>
+                    <p>(Jupyter Notebook, VS Code, Anaconda, etc.).</p>
+                    <a href="comingsoon.html" class="cta-button">Practice</a>
+                </div>
+                
+                <!-- Resume & Portfolio Building -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-file"></i>
+                    <h3>Resume & Portfolio Building</h3>
+                    <p>List of essential libraries with installation commands.</p>
+                    <a href="comingsoon.html" class="cta-button">Build</a>
+                </div>
+                
+                <!-- Internship & Job Resources -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h3>Internship & Job Resources</h3>
+                    <p>Open-source models for ML, NLP, and CV.</p>
+                    <a href="comingsoon.html" class="cta-button">Find</a>
+                </div>
+                
+                <!-- Tech Blog & Articles -->
+                <div class="resources-card">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <h3>Tech Blog & Articles</h3>
+                    <p>Latest AI trends, career guidance.</p>
+                    <a href="comingsoon.html" class="cta-button">Read</a>
+                </div>
+                
+            </div>
+            
+            
+            
+            
+        </section>
+        
+        
+        
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h4>Algoholics</h4>
+                    <p>Empowering the next generation of AI innovators through collaborative learning and practical implementation.</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/onyxfuzzx"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/zaiddddd"><i class="fab fa-linkedin"></i></a>
+                        <a href="comingsoon.html"><i class="fab fa-twitter"></i></a>
+                        <a href="comingsoon.html"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="resources.html">Academic Resources</a></li>
+                        <li><a href="comingsoon.html">Project Showcase</a></li>
+                        <li><a href="comingsoon.html">Career Opportunities</a></li>
+                        <li><a href="comingsoon.html">Professional Network</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contact.algoholic@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> Coming Soon</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Data Science and Artificial Intelligence, RJ College</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Algoholics. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </footer>
+        
+        <script src="script.js"></script>
+</body>
+</html>

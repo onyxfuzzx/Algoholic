@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTRODUCTION TO AI PRACTICAL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="auth.js"></script>
+    <script>
+        // Check authentication status when page loads
+        checkAuth();
+    </script>
+    
+    <nav class="navbar">
+        <div class="navbar-brand" onclick="window.location.href='index.html'">Algoholic</div>
+        <div class="navbar-links">
+            <a href="comingsoon.html">Academic</a>
+            <a href="resources.html">Resources</a>
+            <a href="comingsoon.html">Projects</a>
+            <a href="comingsoon.html">Careers</a>
+            <a href="comingsoon.html">Network</a>
+            <div class="auth-buttons">
+                <!-- Only one of these groups will show at a time -->
+                <div class="guest-buttons">
+                    <a href="signup.html" class="nav-button signup-button">Sign Up</a>
+                    <a href="login.html" class="nav-button login-button">Log In</a>
+                </div>
+                <div class="user-buttons">
+                    <button onclick="logout()" class="nav-button logout-button">Log Out</button>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>INTRODUCTION TO AI PRACTICAL</h1>
+        <div class="section">
+            <h2>1. Depth First Search (DFS) Algorithm</h2>
+            <p><strong>Depth First Search (DFS)</strong> is a graph traversal algorithm that explores as far as possible along a branch before backtracking. It is used to explore all nodes and edges of a graph efficiently.</p>
+            <h3>Characteristics of DFS:</h3>
+            <ul>
+                <li>Uses a stack (either explicitly or through recursion).</li>
+                <li>Explores a path deeply before backtracking.</li>
+                <li>Works for both graph and tree structures.</li>
+                <li>Can be used to detect cycles, topological sorting, and pathfinding.</li>
+            </ul>
+            <h3>Algorithm:</h3>
+            <ol>
+                <li>Start from the root node.</li>
+                <li>Mark the node as visited.</li>
+                <li>Explore each unvisited adjacent node recursively.</li>
+                <li>If no adjacent unvisited nodes exist, backtrack.</li>
+                <li>Repeat until all nodes are visited.</li>
+            </ol>
+            <h3>Python Code:</h3>
+            <div class="code-container">
+                <pre><code class="language-python">def dfs(graph, node, visited=None):
+    if visited is None:
+        visited = set()
+    if node not in visited:
+        print(node, end=' ')
+        visited.add(node)
+        for neighbor in graph.get(node, []):
+            dfs(graph, neighbor, visited)
+
+# Example Graph Representation
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+print("DFS Traversal:")
+dfs(graph, 'A')</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+            <h3>Traversal Process:</h3>
+            <ol>
+                <li>Start at ‘A’ → Print ‘A’, mark ‘A’ as visited.</li>
+                <li>Visit ‘B’ → Print ‘B’, mark ‘B’ as visited.</li>
+                <li>Visit ‘D’ → Print ‘D’, mark ‘D’ as visited (no more neighbors).</li>
+                <li>Backtrack to ‘B’, visit ‘E’ → Print ‘E’, mark ‘E’ as visited.</li>
+                <li>Visit ‘F’ from ‘E’ → Print ‘F’, mark ‘F’ as visited.</li>
+                <li>Backtrack to ‘A’, visit ‘C’ → Print ‘C’, mark ‘C’ as visited.</li>
+                <li>Visit ‘F’ from ‘C’, but ‘F’ is already visited, so ignore it.</li>
+                <li>DFS completes.</li>
+            </ol>
+        </div>
+        <div class="section">
+            <h2>2. Breadth First Search (BFS) Algorithm</h2>
+            <p><strong>Breadth-First Search (BFS)</strong> is a graph traversal algorithm that explores all the nodes of a graph or tree level by level before moving to the next level. It uses a queue (FIFO - First In, First Out) data structure to keep track of the nodes to be explored.</p>
+            <h3>Characteristics of BFS:</h3>
+            <ol>
+                <li>Uses a Queue (FIFO - First In, First Out).</li>
+                <li>Explores Nodes Level by Level.</li>
+                <li>Guarantees Shortest Path in an Unweighted Graph.</li>
+                <li>Visits Each Node Once.</li>
+                <li>Works on Both Graphs and Trees.</li>
+                <li>Handles Disconnected Graphs.</li>
+                <li>Can Be Implemented with an Adjacency List or Adjacency Matrix.</li>
+                <li>Detects Cycles in a Graph.</li>
+                <li>Uses More Memory Compared to DFS.</li>
+                <li>Applicable to Various Real-World Problems.</li>
+            </ol>
+            <h3>Algorithm:</h3>
+            <ol>
+                <li>Start from the root node and enqueue it.</li>
+                <li>Dequeue a node, mark it as visited, and process it.</li>
+                <li>Enqueue all adjacent unvisited nodes.</li>
+                <li>Repeat until the queue is empty.</li>
+            </ol>
+            <h3>Python Code:</h3>
+            <div class="code-container">
+                <pre><code class="language-python">from collections import deque
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            print(node, end=' ')
+            visited.add(node)
+            queue.extend(neighbor for neighbor in graph[node] if neighbor not in visited)
+
+# Example Graph Representation
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F', 'G'],
+    'D': ['B'],
+    'E': ['B', 'H'],
+    'F': ['C'],
+    'G': ['C'],
+    'H': ['E']
+}
+
+print("BFS Traversal:")
+bfs(graph, 'A')</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+            <h3>Traversal Process:</h3>
+            <ol>
+                <li>Start at node <strong>A</strong>, enqueue it.
+                    <ul>
+                        <li>Queue: [A]</li>
+                        <li>Visited: {A}</li>
+                        <li>Output: A</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>A</strong>, enqueue its unvisited neighbors <strong>B, C</strong>.
+                    <ul>
+                        <li>Queue: [B, C]</li>
+                        <li>Visited: {A, B, C}</li>
+                        <li>Output: A B C</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>B</strong>, enqueue its unvisited neighbors <strong>D, E</strong>.
+                    <ul>
+                        <li>Queue: [C, D, E]</li>
+                        <li>Visited: {A, B, C, D, E}</li>
+                        <li>Output: A B C D E</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>C</strong>, enqueue its unvisited neighbors <strong>F, G</strong>.
+                    <ul>
+                        <li>Queue: [D, E, F, G]</li>
+                        <li>Visited: {A, B, C, D, E, F, G}</li>
+                        <li>Output: A B C D E F G</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>D</strong> (no new neighbors).
+                    <ul>
+                        <li>Queue: [E, F, G]</li>
+                        <li>Visited: {A, B, C, D, E, F, G}</li>
+                        <li>Output: A B C D E F G</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>E</strong>, enqueue its unvisited neighbor <strong>H</strong>.
+                    <ul>
+                        <li>Queue: [F, G, H]</li>
+                        <li>Visited: {A, B, C, D, E, F, G, H}</li>
+                        <li>Output: A B C D E F G H</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>F</strong> (no new neighbors).
+                    <ul>
+                        <li>Queue: [G, H]</li>
+                        <li>Visited: {A, B, C, D, E, F, G, H}</li>
+                        <li>Output: A B C D E F G H</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>G</strong> (no new neighbors).
+                    <ul>
+                        <li>Queue: [H]</li>
+                        <li>Visited: {A, B, C, D, E, F, G, H}</li>
+                        <li>Output: A B C D E F G H</li>
+                    </ul>
+                </li>
+                <li>Dequeue <strong>H</strong> (no new neighbors).
+                    <ul>
+                        <li>Queue: []</li>
+                        <li>Visited: {A, B, C, D, E, F, G, H}</li>
+                        <li>Output: A B C D E F G H</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        <div class="section">
+            <h2>3. Minimax Algorithm</h2>
+            <p>The <strong>Minimax Algorithm</strong> is a decision-making algorithm used in two-player turn-based games (like Chess, Tic-Tac-Toe, and Checkers). It is used to determine the optimal move by minimizing the possible loss for a worst-case scenario. It assumes that both players play optimally—one player tries to maximize the score (Maximizer), while the other tries to minimize it (Minimizer).</p>
+            <h3>Characteristics of the Minimax Algorithm:</h3>
+            <ol>
+                <li>Used in Two-Player Zero-Sum Games.</li>
+                <li>Recursive Algorithm.</li>
+                <li>Game Tree Representation.</li>
+                <li>Optimal Strategy Assumption.</li>
+                <li>Exponential Time Complexity.</li>
+                <li>Guarantees Best Possible Move.</li>
+                <li>Uses a Heuristic Evaluation Function.</li>
+                <li>Can Be Optimized Using Alpha-Beta Pruning.</li>
+                <li>Works for Both Deterministic & Perfect Information Games.</li>
+                <li>Backtracking-Based Decision Making.</li>
+            </ol>
+            <h3>Algorithm:</h3>
+            <ol>
+                <li>Generate the game tree to a certain depth.</li>
+                <li>Evaluate leaf nodes using a heuristic function.</li>
+                <li>Backpropagate values:
+                    <ul>
+                        <li>Max player chooses the maximum.</li>
+                        <li>Min player chooses the minimum.</li>
+                    </ul>
+                </li>
+                <li>The root node receives the best move.</li>
+            </ol>
+            <h3>Python Code:</h3>
+            <div class="code-container">
+                <pre><code class="language-python">def minimax(depth, node_index, is_max, values, alpha, beta):
+    if depth == 3:  # Assume depth 3 is the leaf level
+        return values[node_index]
+
+    if is_max:
+        best = float('-inf')
+        for i in range(2):
+            val = minimax(depth + 1, node_index * 2 + i, False, values, alpha, beta)
+            best = max(best, val)
+        return best
+    else:
+        best = float('inf')
+        for i in range(2):
+            val = minimax(depth + 1, node_index * 2 + i, True, values, alpha, beta)
+            best = min(best, val)
+        return best
+
+# Example values at leaf nodes
+values = [3, 5, 2, 9, 12, 5, 23, 23]
+print("Minimax Optimal Value:", minimax(0, 0, True, values, float('-inf'), float('inf')))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+        </div>
+        <div class="section">
+            <h2>4. Alpha-Beta Pruning Algorithm</h2>
+            <p><strong>Alpha-Beta Pruning</strong> is an optimization technique for the Minimax Algorithm. It helps reduce the number of nodes evaluated in the search tree by eliminating branches that do not need to be explored. The main goal is to prune (ignore) parts of the tree that are guaranteed not to affect the final decision, thus speeding up the Minimax process.</p>
+            <h3>Characteristics of the Alpha-Beta Pruning Algorithm:</h3>
+            <ol>
+                <li>Optimization of Minimax.</li>
+                <li>Reduces Computational Complexity.</li>
+                <li>Prunes Suboptimal Branches.</li>
+                <li>Works for Two-Player, Zero-Sum Games.</li>
+                <li>Requires Full Knowledge of the Game Tree.</li>
+                <li>Maximizing and Minimizing Players.</li>
+                <li>Early Stopping of Evaluation.</li>
+                <li>Works with Any Depth or Width.</li>
+                <li>Heuristic Evaluation Function.</li>
+                <li>Pruning Efficiency Depends on Move Ordering.</li>
+            </ol>
+            <h3>Algorithm:</h3>
+            <ol>
+                <li>Use the Minimax strategy.</li>
+                <li>Maintain alpha (best of Max) and beta (best of Min).</li>
+                <li>Prune branches where alpha >= beta.</li>
+            </ol>
+            <h3>Python Code:</h3>
+            <div class="code-container">
+                <pre><code class="language-python">def alphabeta(depth, node_index, is_max, values, alpha, beta):
+    if depth == 3:
+        return values[node_index]
+
+    if is_max:
+        best = float('-inf')
+        for i in range(2):
+            val = alphabeta(depth + 1, node_index * 2 + i, False, values, alpha, beta)
+            best = max(best, val)
+            alpha = max(alpha, best)
+            if beta <= alpha:
+                break
+        return best
+    else:
+        best = float('inf')
+        for i in range(2):
+            val = alphabeta(depth + 1, node_index * 2 + i, True, values, alpha, beta)
+            best = min(best, val)
+            beta = min(beta, best)
+            if beta <= alpha:
+                break
+        return best
+
+# Example values at leaf nodes
+values = [3, 5, 2, 9, 12, 5, 23, 23]
+print("Alpha-Beta Pruning Optimal Value:", alphabeta(0, 0, True, values, float('-inf'), float('inf')))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+        </div>
+        <div class="section">
+            <h2>5. Bayes' Theorem Algorithm</h2>
+            <p><strong>Bayes' Theorem</strong> is a fundamental concept in probability theory and statistics that describes how to update the probability of a hypothesis based on new evidence. It is widely used in various fields, including machine learning, statistics, and artificial intelligence.</p>
+            <h3>Bayes' Theorem Formula:</h3>
+            <p>$$
+P(H \mid E) = \frac{P(E \mid H) \cdot P(H)}{P(E)}
+$$</p>
+            <p>Where:</p>
+            <ul>
+                <li><strong>( P(H \mid E) )</strong> = Posterior Probability: The probability of hypothesis ( H ) being true given evidence ( E ).</li>
+                <li><strong>( P(E \mid H) )</strong> = Likelihood: The probability of evidence ( E ) occurring given that hypothesis ( H ) is true.</li>
+                <li><strong>( P(H) )</strong> = Prior Probability: The initial probability of hypothesis ( H ) before observing evidence ( E ).</li>
+            </ul>
+            <h3>Python Code:</h3>
+            <div class="code-container">
+                <pre><code class="language-python">def bayes_theorem(prior_A, likelihood_B_given_A, prior_B):
+    return (likelihood_B_given_A * prior_A) / prior_B
+
+# Example Probabilities
+prior_A = 0.02  # Probability of having a disease
+likelihood_B_given_A = 0.95  # Test accuracy
+prior_B = 0.05  # Probability of a positive test
+print("Bayesian Probability:", bayes_theorem(prior_A, likelihood_B_given_A, prior_B))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+        </div>
+        <div class="section">
+            <h2>6. A* Search Algorithm</h2>
+            <p>The <em><em>A* algorithm</em></em> uses the concept of a heuristic to guide its search, along with the cost it has already incurred to reach a node. It evaluates nodes based on two factors:</p>
+            <ol>
+                <li><strong>( g(n) )</strong>: The cost to reach the node ( n ) from the starting point.</li>
+                <li><strong>( h(n) )</strong>: The estimated cost (heuristic) to reach the goal from node ( n ).</li>
+            </ol>
+            <p>The total cost for a node is computed as:</p>
+            <p>$$
+f(n) = g(n) + h(n)
+$$</p>
+            <h3>Algorithm:</h3>
+            <ol>
+                <li>Initialize an open list with the start node.</li>
+                <li>Expand the lowest-cost node.</li>
+                <li>Update costs using: ( f(n) = g(n) + h(n) ).</li>
+                <li>Stop when the goal is reached.</li>
+            </ol>
+            <h3>Python Code:</h3>
+            <div class="code-container">
+                <pre><code class="language-python">from queue import PriorityQueue
+
+def a_star(graph, start, goal, h):
+    open_list = PriorityQueue()
+    open_list.put((0, start))
+    came_from = {start: None}
+    g_score = {node: float('inf') for node in graph}
+    g_score[start] = 0
+
+    while not open_list.empty():
+        _, current = open_list.get()
+        if current == goal:
+            path = []
+            while current:
+                path.append(current)
+                current = came_from[current]
+            return path[::-1]
+
+        for neighbor, cost in graph[current]:
+            temp_g_score = g_score[current] + cost
+            if temp_g_score &lt; g_score[neighbor]:
+                g_score[neighbor] = temp_g_score
+                f_score = temp_g_score + h[neighbor]
+                open_list.put((f_score, neighbor))
+                came_from[neighbor] = current
+    return None
+
+# Directed weighted graph with costs between nodes
+graph = {
+    'A': [('B', 1), ('C', 4)],
+    'B': [('C', 2), ('D', 5)],
+    'C': [('D', 1)],
+    'D': []
+}
+
+# Heuristic h(n) estimates the cost from node n to the goal (D)
+h = {'A': 7, 'B': 6, 'C': 2, 'D': 0}
+
+# Finds the shortest path from A to D
+print("\nA* Path:", a_star(graph, 'A', 'D', h))</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+        </div>
+        <div class="section">
+            <h2>7. Tower of Hanoi</h2>
+            <p>The <strong>Tower of Hanoi</strong> is a classic problem in recursion that involves moving disks from one rod to another while following specific rules:</p>
+            <ol>
+                <li>Only one disk can be moved at a time.</li>
+                <li>A disk can only be placed on top of a larger disk.</li>
+                <li>You can use an auxiliary (helper) rod to temporarily hold disks.</li>
+            </ol>
+            <h3>Python Code:</h3>
+            <div class="code-container">
+                <pre><code class="language-python">def TowerOfHanoi(n, source, destination, auxiliary):
+    if n == 1:
+        print(f"Move disk 1 from source {source} to destination {destination}")
+        return
+
+    # Move n-1 disks from source to auxiliary using destination as a temporary rod
+    TowerOfHanoi(n-1, source, auxiliary, destination)
+
+    # Move the nth disk directly from source to destination
+    print(f"Move disk {n} from source {source} to destination {destination}")
+
+    # Move the n-1 disks from auxiliary to destination, using source as a temporary rod
+    TowerOfHanoi(n-1, auxiliary, destination, source)
+
+# Driver code
+n = 4
+TowerOfHanoi(n, 'A', 'B', 'C')</code></pre>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+</html>
